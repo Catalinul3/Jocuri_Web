@@ -1,0 +1,19 @@
+.register-card {
+    max-width: 400px; 
+    margin: auto;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #777;
+    object-position: center;
+    justify-content: center;
+  }
+  .mat-form-field-suffix{
+    top: 0em !important;
+  }
+  .mat-form-field{
+    background-color: transparent;
+    
+  }

@@ -1,0 +1,35 @@
+<div class="register-card">
+
+    <mat-card-header>
+        <mat-card-title style="display: contents;">Register</mat-card-title>
+    </mat-card-header>
+  <mat-form-field>
+    <mat-label>Enter your name</mat-label>
+    <input matInput placeholder="name" [formControl]="name" required>
+  </mat-form-field>
+
+    <mat-form-field >
+    <mat-label>Enter your email</mat-label>
+<input matInput placeholder="email@example.com" [formControl]="email" required>
+<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+
+<mat-form-field style="background-color: white">
+    <mat-label>Enter your Password</mat-label>
+    
+    <input matInput placeholder="Enter Password" [formControl]="password" name="password" [type]="hide ? 'password' : 'text'">
+    <button style="border: 0; background: transparent;" mat-icon-button matSuffix  (click)="hideMethod()">
+        <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+</mat-form-field>
+<mat-form-field style="background-color: white">
+    <mat-label>Confirm your Password</mat-label>
+    
+    <input matInput placeholder="Enter Password" [formControl]="confirmPassword" name="password" [type]="hideConfirm ? 'password' : 'text'">
+    <button style="border: 0; background: transparent;" mat-icon-button matSuffix  (click)="hideConfirmMethod()">
+        <mat-icon >{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+</mat-form-field>
+<button mat-raised-button color="accent"  (click)="onsubmit()" [routerLink]="registerValidation ? '/login' : null"  >Register</button>
+<button mat-raised-button color="warning"  (click)="onReset()">Cancel</button>
+</div>

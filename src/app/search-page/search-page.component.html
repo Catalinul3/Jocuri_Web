@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+  <header>
+   
+    <ul class="nav">
+    <li><a href="\home"><mat-icon  >home</mat-icon></a></li>
+    <li><a href="\login">Account</a></li>
+  
+    <li><a href="\upcoming">Upcoming Release</a></li>
+  </ul>
+  <div class="Search">
+    <input [(ngModel)]="searchTerm" type="text" placeholder="Search.." name="search">
+    <button (click)="search()"><mat-icon>search</mat-icon>Search</button>
+  </div>
+</header>
+</div>
+
+<div class="center-container">
+    <ng-container *ngIf="searchResults.length > 0; else noResults">
+     
+        <div *ngFor="let game of searchResults" class="game-card">
+            <mat-card  role="button">
+                <img class="card-poster" [src]="game.poster" [alt]="game.name">
+                <mat-card-header>
+                    <div class="header-text">{{ game.name }}</div>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="content-text">
+                      
+                        Rating: {{ game.rating }}<br>
+                        Genre: {{ game.genre }}<br>
+                        PG Rating: {{ game.pg }}
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </ng-container>
+    <ng-template #noResults>
+       
+        <div class="no-results-message">No results found.</div>
+    </ng-template>
+</div>
+
+  
+
+    
+    
+    
